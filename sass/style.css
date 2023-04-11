@@ -37,6 +37,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 /* Шрифты */
 body {
   font-family: "Lato", sans-serif;
@@ -747,7 +751,18 @@ body {
   line-height: 17px;
   color: #636363;
 }
-.breadcrumbs__link:last-child {
+.breadcrumbs__links {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.breadcrumbs__links li + li:before {
+  color: #636363;
+  content: "/ ";
+}
+
+.breadcrumbs__item:last-child .breadcrumbs__link {
   color: #F16D7F;
   font-weight: 700;
 }
