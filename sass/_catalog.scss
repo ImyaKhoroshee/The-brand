@@ -1,0 +1,105 @@
+@import 'vars';
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+summary {
+    display: block;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+.filter {
+    padding-top: 48px;
+    padding-bottom: 64px;
+    position: relative;
+    @include flexRowWrap();
+    gap: 390px;
+    &__summary {
+        padding: 13px 16px 16px;
+        position: absolute;
+        top: 39px;
+        box-sizing: border-box;
+        width: 360px;
+        @include flexRowWrap();
+        gap: 11px;
+        z-index: 11111111111111;
+    }
+    &__title {
+        list-style: none;
+        @include flexRowWrap();
+        gap: 12px;
+        align-items: center;
+    }
+    &__title-style {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: $superBlackColor;
+    }
+    &__summary[open] &__title-style {
+        color: $coralColor;
+    }
+    &__summary[open] path {
+        fill: $coralColor;
+    }
+    &__summary[open] {
+        background-color: $whiteColor;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    }
+    &__item {
+        margin-top: 16px;  
+    }
+    &__content-title {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: $greyColor;
+        padding: 8px 11px 11px 11px;
+        border-bottom: 1px solid #EBEBEB;
+        border-left: 5px solid $coralColor;
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: $greyColor;
+        &:hover {
+            color: $coralColor;
+        }
+    }
+    &__link-box {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        padding: 24px 16px;
+    }
+    &__item[open] &__content-title {
+        color: $coralColor;
+    }
+}
+
+.products__cards {
+    position: relative;
+}
+.sort {
+ &__container {
+    margin-top: 0;
+    margin-bottom: 0;
+    }
+    &__heading {
+    margin-top: 0;
+    margin-bottom: 0;
+    }
+    &__items {
+    gap: 24px;
+    } 
+    &__checkbox-container {
+        position: absolute;
+        z-index: 100000000000;
+        margin-top: 5px;
+        margin-left: -9px;
+    }
+    &__special {
+        margin-left: 5px;
+    }
+}
+

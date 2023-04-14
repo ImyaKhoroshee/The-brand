@@ -1,5 +1,6 @@
 @import 'vars';
 @import 'mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .breadcrumbs {
     @include flexRowWrap();
@@ -35,6 +36,7 @@
             font-weight: 700;
         }
 
+
 .slider {
     background-color: #F7F7F7;
     padding-bottom: 51px;
@@ -48,6 +50,12 @@
     }
     &__next {
         @include sliderArrows();
+    }
+    &__previous:hover path {
+        @include sliderArrowsHover();
+    }
+    &__next:hover path {
+        @include sliderArrowsHover();
     }
     &__img {
         position: relative;
@@ -112,20 +120,7 @@
         width: 642px;
         height: 1px;
         background-color: #EAEAEA;
-    }
-    &__select {
-        margin-top: 64.05px;
-        @include flexRowWrap();
-        justify-content: center;
-        gap: 23px;
-        margin-bottom: 48.5px;
-    }
-    &__select__item {
-        border: none;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        color: #6F6E6E;
+        margin-bottom: 64.5px;
     }
     &__button {
         padding-top: 15px;
@@ -142,10 +137,91 @@
         gap: 23px;
         margin-bottom: 64.5px;
         cursor: pointer;
+        margin-top: 46.5px;
+        transition: .3s;
+    }
+    &__button:hover {
+        background-color: $coralColor;
+        color: $whiteColor;
+    }
+    &__button:hover path {
+        fill: $whiteColor;
+    }
+}
+
+.sort {
+    &__container {
+        margin-top: 50.5px;
+    }
+    &__item {
+        position: relative;
+    }
+    &__items {
+        display: flex;
+        flex-direction: row;
+        gap: 28px;
+    }
+    &__heading {
+        margin-top: 15px;
+        margin-bottom: 15px; 
+        list-style: none;
+    }
+    &__name {
+        padding-right: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #6F6E6E;
+    }
+    &__checkbox {
+        @include flexRowWrap();
+        gap: 9px;
+    }
+    &__checkbox-container {
+        background: #FFFFFF;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+        padding: 7px 0 11px 9.5px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        width: 68px;
+        position: absolute;
+    }
+    &__checkbox__label {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #6F6E6E;
+    }
+    &__checkbox__input[type="checkbox"] {
+        appearance: none;
+}
+    &__checkbox__input::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border: 1px solid #EBEBEB;
+        display: inline-block;
+    }
+    &__checkbox__input+label::before {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
+    // &__checkbox__input:checked+label::before {
+    //     background-image: url("../img/checked.png");
+    // }
+    &__label {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #6F6E6E;
     }
 }
 .products__cards {
-    margin-bottom: 126.5px;
+    margin-bottom: 125.5px;
 }
 
 

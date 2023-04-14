@@ -14,3 +14,11 @@
     background-color: rgba(42, 42, 42, 0.15);
     border: none;
 }
+@mixin sliderArrowsHover{
+    width: 47px;
+    height: 47px;
+    background-color: rgba(42, 42, 42, 0.15);
+    border: none;
+    fill: $coralColor;
+    transition: .3s
+}
