@@ -90,14 +90,14 @@
     &__line-first {
         width: 63px;
         height: 3px;
-        background-color: $moreCoralColor;
+        background-color: $coralColor;
     }
     &__subtitle {
         margin-top: 12px;
         font-weight: 300;
         font-size: 18px;
         line-height: 22px;
-        color: #4D4D4D;
+        color: $greyColor;
         margin-bottom: 48.5px;
     }
     &__about__product {
@@ -106,14 +106,14 @@
         font-size: 14px;
         line-height: 17px;
         text-align: center;
-        color: #5E5E5E;
+        color: $greyColor;
     }
     &__price {
         margin-top: 32px;
         font-weight: 300;
         font-size: 24px;
         line-height: 29px;
-        color: $moreCoralColor;
+        color: $coralColor;
         margin-bottom: 64.5px;
     }
     &__line-second {
@@ -127,11 +127,11 @@
         padding-left: 24px;
         padding-bottom: 9px;
         padding-right: 57px;
-        border: 1px solid #FF6A6A;
+        border: 1px solid $coralColor;
         background-color: transparent;
         font-size: 16px;
         line-height: 19px;
-        color: #F26376;
+        color: $coralColor;
         display: flex;
         align-items: center;
         gap: 23px;
@@ -171,14 +171,14 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
-        color: #6F6E6E;
+        color: $greyColor;
     }
     &__checkbox {
         @include flexRowWrap();
         gap: 9px;
     }
     &__checkbox-container {
-        background: #FFFFFF;
+        background: $whiteColor;
         box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
         padding: 7px 0 11px 9.5px;
         display: flex;
@@ -193,7 +193,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
-        color: #6F6E6E;
+        color: $greyColor;
     }
     &__checkbox__input[type="checkbox"] {
         appearance: none;
@@ -217,10 +217,10 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
-        color: #6F6E6E;
+        color: $greyColor;
     }
 }
-.products__cards {
+.products__cards-special {
     margin-bottom: 125.5px;
 }
 

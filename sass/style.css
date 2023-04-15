@@ -49,6 +49,11 @@ body {
   font-style: normal;
 }
 
+.box-content {
+  overflow: hidden;
+  position: relative;
+}
+
 /* Центрирование  */
 .center {
   padding-left: calc(50% - 570px);
@@ -68,6 +73,7 @@ body {
 }
 .header__menu {
   display: flex;
+  gap: 10px;
 }
 .header__logo__search {
   align-items: baseline;
@@ -75,6 +81,69 @@ body {
 .header__menu {
   align-items: center;
   padding-right: 10px;
+}
+
+.burger__icon {
+  margin-right: 13px;
+  margin-top: -10px;
+}
+.burger__svg {
+  margin-right: 70px;
+}
+.burger__nav {
+  width: 232px;
+  background: #FFFFFF;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  padding-top: 37px;
+  padding-left: 34px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  transition: right 0.4s;
+}
+.burger__nav__subhead {
+  margin-bottom: 11px;
+  margin-top: 20px;
+}
+.burger__nav__tophead {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #222222;
+}
+.burger__nav__head {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #F16D7F;
+}
+.burger__links {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 17px;
+}
+.burger__link {
+  padding-left: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #636363;
+}
+.burger__link:hover {
+  color: #F16D7F;
+}
+
+#burger {
+  position: absolute;
+  left: -9999999999px;
+  visibility: hidden;
+}
+
+#burger:checked ~ .burger__nav {
+  right: -232px;
 }
 
 .search,
@@ -258,13 +327,13 @@ body {
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  color: #000000;
+  color: #222222;
   margin-bottom: 12.65px;
   margin-top: 21px;
 }
 
 .card__heading__link {
-  color: #000000;
+  color: #222222;
 }
 
 .card__heading__link:hover {
@@ -275,7 +344,7 @@ body {
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
-  color: #5D5D5D;
+  color: #636363;
   margin-bottom: 18px;
 }
 
@@ -290,11 +359,11 @@ body {
 .products__button {
   width: 211px;
   height: 47px;
-  border: 1px solid #FF6A6A;
+  border: 1px solid #F16D7F;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #F26376;
+  color: #F16D7F;
   margin: 0 auto;
   display: block;
   background-color: transparent;
@@ -304,7 +373,7 @@ body {
 }
 
 .products__button:hover {
-  background-color: #FF6A6A;
+  background-color: #F16D7F;
   color: #FFFFFF;
 }
 
@@ -315,7 +384,7 @@ body {
 /* Секция Features с карточками товаров */
 .features {
   background-color: #222224;
-  color: #FBFBFB;
+  color: #FFFFFF;
   padding-top: 104px;
   padding-bottom: 103px;
 }
@@ -459,7 +528,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #FBFBFB;
+  color: #FFFFFF;
   list-style-type: none;
 }
 
@@ -838,14 +907,14 @@ body {
 .productdescription__line-first {
   width: 63px;
   height: 3px;
-  background-color: #EF5B70;
+  background-color: #F16D7F;
 }
 .productdescription__subtitle {
   margin-top: 12px;
   font-weight: 300;
   font-size: 18px;
   line-height: 22px;
-  color: #4D4D4D;
+  color: #636363;
   margin-bottom: 48.5px;
 }
 .productdescription__about__product {
@@ -854,14 +923,14 @@ body {
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #5E5E5E;
+  color: #636363;
 }
 .productdescription__price {
   margin-top: 32px;
   font-weight: 300;
   font-size: 24px;
   line-height: 29px;
-  color: #EF5B70;
+  color: #F16D7F;
   margin-bottom: 64.5px;
 }
 .productdescription__line-second {
@@ -875,11 +944,11 @@ body {
   padding-left: 24px;
   padding-bottom: 9px;
   padding-right: 57px;
-  border: 1px solid #FF6A6A;
+  border: 1px solid #F16D7F;
   background-color: transparent;
   font-size: 16px;
   line-height: 19px;
-  color: #F26376;
+  color: #F16D7F;
   display: flex;
   align-items: center;
   gap: 23px;
@@ -917,7 +986,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #6F6E6E;
+  color: #636363;
 }
 .sort__checkbox {
   display: flex;
@@ -941,7 +1010,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  color: #6F6E6E;
+  color: #636363;
 }
 .sort__checkbox__input[type=checkbox] {
   -webkit-appearance: none;
@@ -964,10 +1033,10 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  color: #6F6E6E;
+  color: #636363;
 }
 
-.products__cards {
+.products__cards-special {
   margin-bottom: 125.5px;
 }
 
@@ -1012,7 +1081,7 @@ summary::-webkit-details-marker {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color: #222222;
 }
 .filter__summary[open] .filter__title-style {
   color: #F16D7F;

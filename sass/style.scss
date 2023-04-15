@@ -1,8 +1,6 @@
 @import 'mixins';
 @import 'vars';
 
-
-
 @keyframes jello-horizontal {
     0% {
         transform: scale3d(1, 1, 1);
@@ -55,6 +53,11 @@ li {
 body {
     font-family: 'Lato', sans-serif;
     font-style: normal;
+    
+}
+.box-content {
+    overflow: hidden;
+    position: relative;
 }
 
 /* Центрирование  */
@@ -77,6 +80,7 @@ body {
 
     &__menu {
         display: flex;
+        gap: 10px;
     }
 
     &__logo__search {
@@ -88,7 +92,68 @@ body {
         padding-right: 10px;
     }
 }
-
+.burger {
+    &__icon {
+        margin-right: 13px;
+        margin-top: -10px;
+    }
+    &__svg {
+        margin-right: 70px; 
+    }
+    &__nav {
+        width: 232px;
+        background: #FFFFFF;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+        padding-top: 37px;
+        padding-left: 34px;
+        padding-bottom: 16px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        transition: right .4s;
+    }
+    &__nav__subhead {
+        margin-bottom: 11px;
+        margin-top: 20px;
+    }
+    &__nav__tophead {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: $blackColor;
+    }
+    &__nav__head {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: $coralColor;
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        margin-bottom: 17px;
+    }
+    &__link {
+        padding-left: 20px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: $greyColor;
+        &:hover {
+            color: $coralColor;
+        }
+    }
+}
+#burger {
+    position: absolute;
+    left: -9999999999px;
+    visibility: hidden; 
+}
+#burger:checked ~.burger__nav {
+    right: -232px;
+}
 .search,
 .burger,
 .account,
@@ -119,6 +184,7 @@ body {
         display: flex;
         margin-top: 289px;
         padding-left: 64px;
+
     }
 
     &__line {
@@ -288,13 +354,13 @@ body {
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
-    color: $superBlackColor;
+    color: $blackColor;
     margin-bottom: 12.65px;
     margin-top: 21px;
 }
 
 .card__heading__link {
-    color: $superBlackColor;
+    color: $blackColor;
 }
 
 .card__heading__link:hover {
@@ -305,7 +371,7 @@ body {
     font-weight: 300;
     font-size: 14px;
     line-height: 17px;
-    color: #5D5D5D;
+    color: $greyColor;
     margin-bottom: 18px;
 }
 
@@ -320,11 +386,11 @@ body {
 .products__button {
     width: 211px;
     height: 47px;
-    border: 1px solid $lightRed;
+    border: 1px solid $coralColor;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: #F26376;
+    color: $coralColor;
     margin: 0 auto;
     display: block;
     background-color: transparent;
@@ -334,7 +400,7 @@ body {
 }
 
 .products__button:hover {
-    background-color: $lightRed;;
+    background-color: $coralColor;
     color: $whiteColor;
 }
 
@@ -345,7 +411,7 @@ body {
 /* Секция Features с карточками товаров */
 .features {
     background-color: $darkGrey;
-    color: #FBFBFB;
+    color: $whiteColor;
     padding-top: 104px;
     padding-bottom: 103px;
     
@@ -502,7 +568,7 @@ body {
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: #FBFBFB;
+    color: $whiteColor;
     list-style-type: none;
 }
 
