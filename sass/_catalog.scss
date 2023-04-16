@@ -102,4 +102,30 @@ summary::-webkit-details-marker {
         margin-left: 5px;
     }
 }
+.pagination {
+    
+    padding-bottom: 96px;
+    &__container {
+        width: 284px;
+        height: 44px;
+        border: 1px solid 
+    #EBEBEB;
+    margin: 0 auto;
+    }
+    &__items {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 12.5px 15px;
+    }
+    &__number {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: $lightGreyColor;
+        &:hover {
+            color: $coralColor;
+        }
+    }
+}
 
