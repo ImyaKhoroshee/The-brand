@@ -1,0 +1,281 @@
+@import 'vars';
+@import 'mixins';
+
+.cart-box {
+    padding-top: 96px;
+    padding-bottom: 128px;
+    @include flexRowWrap();
+    gap: 128px;
+    
+    &__item-left {
+        width: 652px;
+    }
+    &__order-card {
+        @include flexRowWrap();
+        box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+        margin-bottom: 40px;
+       
+    }
+    &__card-content {
+        padding-top: 22px;
+        padding-left: 31px;
+        display: flex;
+        flex-direction: column;
+        gap: 42px; 
+    }
+    &__card-content-title {
+        @include flexRowWrap();
+        gap: 115px;
+    }
+    &__card-content-link {
+        display: block;
+        max-width: 203px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: $blackColor;
+    }
+    &__cross {
+        width: 16px;
+        height: 15px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &__card-content-text {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 26px;
+        color: $greyColor;
+    }
+    &__card-content-price {
+        display: flex;
+        gap: 3px;
+    }
+    &__price-special {
+        color: $coralColor;
+    }
+    &__card-content-color {
+        display: flex;
+        gap: 3px;
+    }
+    &__color-special, &__size-special {
+        color: #6F6E6E;
+    }
+    &__card-content-size {
+        display: flex;
+        gap: 3px;
+    }
+    &__card-content-quantity {
+        @include flexRowWrap();
+        gap: 29px;
+    }
+    &__input {
+        width: 43px;
+        height: 24px;
+        text-align: center;
+        border: 1px solid #EAEAEA;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: $greyColor;
+    }
+    &__buttons {
+        @include flexRowWrap();
+        justify-content: space-between;
+        margin-top: 70px;
+    }
+    &__button {
+        width: 225px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #A4A4A4;
+        background-color: transparent;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+        color: $blackColor;
+        transition: .3s;
+        &:hover {
+            background-color: #A4A4A4;
+            color: $whiteColor;
+        }
+    }
+    &__form {
+        width: 360px;
+    }
+    &__heading {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 17px;
+    }
+    &__input-box {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        margin-bottom: 57px;
+    }
+    &__form-item {
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 17px;
+        border: 1px solid #A4A4A4;
+        &::placeholder {
+            color: #B1B1B1;
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 16px;
+        }
+    }
+    &__form-item-special {
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 13px;
+        color: $darkGrey;
+        background-color: transparent;
+        border: 1px solid #A4A4A4;
+        width: 101px;
+        padding-top: 10px;
+        padding-bottom: 12px;
+        transition: .3s;
+        &:hover {
+            background-color: #A4A4A4;
+            color: $whiteColor;
+        }
+    }
+    &__checkout {
+        padding: 39px 34px 57px 44px;
+        background-color: #F5F3F3;
+    }
+    &__subtotal {
+        @include flexRowWrap();
+        gap: 26px;
+        justify-content: flex-end;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 13px;
+        color: $greyColor;
+        margin-bottom: 12px;
+    }
+    &__grandtotal {
+         @include flexRowWrap();
+        gap: 29px;
+        justify-content: flex-end;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: $blackColor;
+        margin-bottom: 21px;
+    }
+    &__grandprice {
+        color: $coralColor;
+    }
+    &__checkout-line {
+        height: 1px;
+        width: 275px;
+        background-color: #E2E2E2;
+        margin-bottom: 30px;
+    }
+    &__checkout-button {
+        padding: 15px 43px 16px 41px;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: $whiteColor;
+        background-color: $coralColor;
+        margin-bottom: 10px;
+        transition: .3s;
+        &:hover {
+            background-color: #A4A4A4;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .cart-box {
+        padding-top: 55px;
+        padding-bottom: 70px;
+        gap: 46px;
+    }
+    .cart-box__item-left {
+        width: 734px;
+    }
+    
+    .cart-box__card-content-title {
+        gap: 195px;
+        margin-top: 2px;
+    }
+    .cart-box__buttons {
+        justify-content: center;
+        gap: 59px;
+        margin-top: 63px;
+    }
+    .cart-box__item-right {
+        @include flexRowWrap();
+        gap: 15px;
+    }
+    .cart-box__checkout {
+        margin: auto;
+        margin-bottom: 77px;
+    }
+}
+
+@media (max-width: 767px) {
+.breadcrumbs {
+    padding-top: 51px;
+    padding-bottom: 68px;
+}
+.cart-box {
+        padding-top: 39px;
+}
+    .cart-box__item-left {
+    width: 358px;
+    } 
+    .cart-box__card-content {
+            padding-top: 6px;
+    padding-left: 17px;
+    }
+    .cart-box__card-content-link {
+        font-size: 1rem;
+            max-width: 140px;
+    }
+.cart-box__card-content-title {
+    gap: 31px;
+}
+    .cart-box__cross svg {
+        width: 10px;
+        height: 11px;
+    }
+    .cart-box__card-content-text {
+    font-size: 14px;
+    line-height: 17px;
+    gap: 2px;
+}
+.cart-box__card-content {
+    gap: 9px;
+}
+.cart-box__order-card {
+    flex-wrap: nowrap;
+}
+.cart-box__input {
+    width: 25px;
+    height: 15px;
+    &::placeholder {
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+justify-content: center;
+align-items: center;    
+}
+}
+}

@@ -224,7 +224,16 @@
     margin-bottom: 125.5px;
 }
 
-
+@media (max-width: 1280px) {
+    .products__cards__item_product-media {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .products__cards__item_product-media {
+        display: grid;
+    }
+}
 
 
    

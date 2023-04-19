@@ -1,6 +1,7 @@
 @import 'mixins';
 @import 'vars';
 
+
 @keyframes jello-horizontal {
     0% {
         transform: scale3d(1, 1, 1);
@@ -94,8 +95,9 @@ body {
 }
 .burger {
     &__icon {
-        margin-right: 13px;
+        margin-right: 32px;
         margin-top: -10px;
+        cursor: pointer;
     }
     &__svg {
         margin-right: 70px; 
@@ -112,6 +114,7 @@ body {
         top: 75px;
         right: 0;
         transition: right .4s;
+        z-index: 1;
     }
     &__nav__subhead {
         margin-bottom: 11px;
@@ -157,7 +160,7 @@ body {
 .search,
 .burger,
 .account,
-.cart {
+.cart-icon {
     cursor: pointer;
 }
 .logo {
@@ -287,7 +290,6 @@ body {
         color: #9F9F9F;
         margin-bottom: 48px;
     }
-
         &__cards {
         display: grid;
         grid-template-columns: repeat(3, 360px);
@@ -295,12 +297,36 @@ body {
         justify-content: center;
         margin-bottom: 50.5px;
     }
-
         &__cards__item {
         background-color: #F8F8F8;
     }
+        &__button {
+        width: 211px;
+        height: 47px;
+        border: 1px solid $coralColor;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: $coralColor;
+        margin: 0 auto;
+        display: block;
+        background-color: transparent;
+        margin-bottom: 92.5px;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__button:hover {
+        background-color: $coralColor;
+        color: $whiteColor;
+    }
 }
 
+.jello-horizontal:hover {
+    animation: jello-horizontal 0.7s alternate forwards;
+}
 .image {
     position: relative;
 }
@@ -383,30 +409,6 @@ body {
     margin-bottom: 20px;
 }
 
-.products__button {
-    width: 211px;
-    height: 47px;
-    border: 1px solid $coralColor;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: $coralColor;
-    margin: 0 auto;
-    display: block;
-    background-color: transparent;
-    margin-bottom: 92.5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.products__button:hover {
-    background-color: $coralColor;
-    color: $whiteColor;
-}
-
-.jello-horizontal:hover {
-    animation: jello-horizontal 0.7s alternate forwards;
-}
 
 /* Секция Features с карточками товаров */
 .features {
@@ -598,6 +600,9 @@ body {
 @import 'm375';
 @import 'product';
 @import 'catalog';
+@import 'cart';
+@import 'registration';
+
 
 
 
