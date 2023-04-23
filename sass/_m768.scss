@@ -116,3 +116,29 @@
         padding-right: 33px;
     }
 }
+
+@media (max-width: 1280px) {
+    .registration {
+        gap: 22px;
+        &__description {
+            max-width: 354px;
+            gap: 22px;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .registration {
+        padding-top: 38px;
+        &__description {
+            gap: 29px;
+        }
+        &__list {
+            gap: 20px;
+        }
+    }
+    
+}
+    

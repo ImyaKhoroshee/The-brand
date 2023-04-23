@@ -21,7 +21,7 @@ summary::-webkit-details-marker {
         width: 360px;
         @include flexRowWrap();
         gap: 11px;
-        z-index: 11111111111111;
+        z-index: 10;
         cursor: pointer;
     }
     &__title {
@@ -156,9 +156,21 @@ summary::-webkit-details-marker {
             display: none;
         }
         &__summary {
-            padding-left: 0;
+            padding-left: 0px;
                 top: 11px;
         }
+        &__right-wrapper {
+            z-index: 11;
+        }
+        &__summary[open] {
+            padding-left: 17px;
+        }
+        // ***********************
+        // НЕ РАБОТАЕТ
+        &__summary[open] &__right-wrapper {
+            display: none;
+        }
+        // ***********************
         &__title svg {
             width: 37.5px;
             height: 25px;
@@ -178,4 +190,5 @@ summary::-webkit-details-marker {
     .footer {
         gap: 25px;
     }
+    
 }

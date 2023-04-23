@@ -69,6 +69,7 @@
     }
     &__button {
         margin-top: 40px;
+        font-family: inherit;
         width: 167px;
         height: 50px;
         background-color: transparent;
@@ -125,7 +126,23 @@
         }
     }
 }
+@media (max-width: 1024px) {
+    .registration {
+        padding-top: 38px;
+        &__description {
+            gap: 29px;
+        }
+        &__list {
+            gap: 20px;
+        }
+    }
+}
+    
 @media (max-width: 767px) {
+    .breadcrumbs {
+    padding-top: 60px;
+    padding-bottom: 59px;
+    }
     .registration {
         gap: 40px;
         padding-bottom: 103px;

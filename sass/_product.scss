@@ -6,8 +6,8 @@
     @include flexRowWrap();
     justify-content: space-between;
     background-color: #F8F3F4;
-    padding-top: 65px;
-    padding-bottom: 56px;
+    padding-top: 60px;
+    padding-bottom: 62px;
     &__left {
         display: flex;
         font-weight: 400;
@@ -39,7 +39,7 @@
 
 .slider {
     background-color: #F7F7F7;
-    padding-bottom: 51px;
+    padding-bottom: 47px;
     &__item {
         display: flex;
         justify-content: space-between;
@@ -229,10 +229,86 @@
         display: none;
     }
 }
+@media (max-width: 1024px) {
+    .slider {
+        padding-bottom: 29px;
+        &__item {
+            padding-top: 22px;
+        }
+    }
+    .productdescription__container {
+        margin-top: 0;
+    }
+    .products__cards__item_media768 {
+        order: 2;
+    }
+
+}
 @media (max-width: 767px) {
+    .breadcrumbs.breadcrumbs__product {
+        padding-top: 25px;
+        padding-bottom: 46px;
+    }
     .products__cards__item_product-media {
         display: grid;
     }
+    .slider {
+        padding-bottom: 81px;
+    &__item {
+        padding-top: 86px;
+    }
+    &__previous {
+        position: absolute;
+        top: 510px;
+        z-index: 4;
+    }
+    &__next {
+        position: absolute;
+        z-index: 4;
+        top: 510px;
+        right: 0;
+        }
+    }
+    .productdescription {
+        padding-bottom: 63px;
+    
+    &__about__product {
+        line-height: 20px;
+        max-width: 326px;
+    }
+    &__subtitle {
+        margin-bottom: 32px;
+    }
+        
+    &__line-second {
+        width: 175px;
+        margin-bottom: 42.5px;
+    }
+    &__price {
+        margin-top: 38px;
+        margin-bottom: 31.5px;
+    }
+    &__button {
+        margin-top: 62px;
+    }
+    }
+    .sort__name.sort__name_product {
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .products__cards {
+        gap: 0;
+    &__item_media768 {
+        order: 0;
+    }
+    &__item.products__cards__item-media375 {
+        display: none;
+    }
+    &-special {
+        margin-bottom: 61px;
+    }
+}
+    
 }
 
 
