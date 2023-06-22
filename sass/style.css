@@ -1170,13 +1170,15 @@ summary::-webkit-details-marker {
   position: absolute;
   top: 39px;
   box-sizing: border-box;
-  width: 360px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 11px;
   z-index: 10;
   cursor: pointer;
+}
+.filter__summary[open] {
+  width: 360px;
 }
 .filter__title {
   list-style: none;
@@ -1314,14 +1316,8 @@ summary::-webkit-details-marker {
     padding-left: 0px;
     top: 11px;
   }
-  .filter__right-wrapper {
-    z-index: 11;
-  }
   .filter__summary[open] {
     padding-left: 17px;
-  }
-  .filter__summary[open] .filter__right-wrapper {
-    display: none;
   }
   .filter__title svg {
     width: 37.5px;

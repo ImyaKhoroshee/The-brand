@@ -18,11 +18,14 @@ summary::-webkit-details-marker {
         position: absolute;
         top: 39px;
         box-sizing: border-box;
-        width: 360px;
+        // width: 360px;
         @include flexRowWrap();
         gap: 11px;
         z-index: 10;
         cursor: pointer;
+    }
+    &__summary[open] {
+        width: 360px;
     }
     &__title {
         list-style: none;
@@ -159,18 +162,9 @@ summary::-webkit-details-marker {
             padding-left: 0px;
                 top: 11px;
         }
-        &__right-wrapper {
-            z-index: 11;
-        }
         &__summary[open] {
             padding-left: 17px;
         }
-        // ***********************
-        // НЕ РАБОТАЕТ
-        &__summary[open] &__right-wrapper {
-            display: none;
-        }
-        // ***********************
         &__title svg {
             width: 37.5px;
             height: 25px;
