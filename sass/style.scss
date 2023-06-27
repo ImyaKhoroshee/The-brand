@@ -1,6 +1,5 @@
-@import 'mixins';
-@import 'vars';
-
+@import "mixins";
+@import "vars";
 
 @keyframes jello-horizontal {
     0% {
@@ -52,9 +51,8 @@ li {
 
 /* Шрифты */
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-style: normal;
-    
 }
 .box-content {
     overflow: hidden;
@@ -100,11 +98,11 @@ body {
         cursor: pointer;
     }
     &__svg {
-        margin-right: 70px; 
+        margin-right: 70px;
     }
     &__nav {
         width: 232px;
-        background: #FFFFFF;
+        background: #ffffff;
         box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
         padding-top: 37px;
         padding-left: 34px;
@@ -113,7 +111,7 @@ body {
         position: absolute;
         top: 75px;
         right: 0;
-        transition: right .4s;
+        transition: right 0.4s;
         z-index: 100;
     }
     &__nav__subhead {
@@ -152,9 +150,9 @@ body {
 #burger {
     position: absolute;
     left: -9999999999px;
-    visibility: hidden; 
+    visibility: hidden;
 }
-#burger:checked ~.burger__nav {
+#burger:checked ~ .burger__nav {
     right: -232px;
 }
 .search,
@@ -175,10 +173,10 @@ body {
 /* Секция Brand с названием и картинкой */
 .brand {
     @include flexRowWrap();
-    background-color: #F1E4E6;
+    background-color: #f1e4e6;
     padding-left: calc(50% - 800px);
     padding-right: calc(50% - 800px);
-    
+
     &__img {
         width: 50vw;
     }
@@ -187,7 +185,6 @@ body {
         display: flex;
         margin-top: 289px;
         padding-left: 64px;
-
     }
 
     &__line {
@@ -255,10 +252,9 @@ body {
         font-size: 24px;
         line-height: 29px;
         color: $coralColor;
-        transition: .5s;
+        transition: 0.5s;
     }
     &__heading:hover {
-
         .offer__heading__down {
             color: rgb(224, 215, 215);
         }
@@ -271,36 +267,36 @@ body {
         margin-top: 90px;
     }
 
-        &__heading,
-        &__text {
+    &__heading,
+    &__text {
         font-weight: 400;
         text-align: center;
     }
 
-        &__heading {
+    &__heading {
         font-size: 30px;
         line-height: 36px;
         color: $blackColor;
         margin-bottom: 6px;
     }
 
-        &__text {
+    &__text {
         font-size: 14px;
         line-height: 17px;
-        color: #9F9F9F;
+        color: #9f9f9f;
         margin-bottom: 48px;
     }
-        &__cards {
+    &__cards {
         display: grid;
         grid-template-columns: repeat(3, 360px);
         gap: 30px;
         justify-content: center;
         margin-bottom: 50.5px;
     }
-        &__cards__item {
-        background-color: #F8F8F8;
+    &__cards__item {
+        background-color: #f8f8f8;
     }
-        &__button {
+    &__button {
         width: 211px;
         height: 47px;
         border: 1px solid $coralColor;
@@ -350,7 +346,7 @@ body {
     @include transformCenter();
     z-index: 1000;
     cursor: pointer;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .image:hover {
@@ -358,7 +354,7 @@ body {
         filter: brightness(0.4);
     }
     .hover__button {
-    display: flex;
+        display: flex;
     }
 }
 
@@ -368,7 +364,6 @@ body {
 
 .hover__svg {
     margin-right: 11.04px;
-
 }
 
 .cards__description {
@@ -409,14 +404,13 @@ body {
     margin-bottom: 20px;
 }
 
-
 /* Секция Features с карточками товаров */
 .features {
     background-color: $darkGrey;
     color: $whiteColor;
     padding-top: 104px;
     padding-bottom: 103px;
-    
+
     &__items {
         display: flex;
         gap: 30px;
@@ -518,7 +512,7 @@ body {
     &__input {
         width: 224px;
         height: 49px;
-        background-color: #E1E1E1;
+        background-color: #e1e1e1;
         border: none;
         border-radius: 30px 0px 0px 30px;
         padding-left: 22px;
@@ -536,7 +530,7 @@ body {
         line-height: 17px;
         display: flex;
         align-items: center;
-        color: $darkGrey;;
+        color: $darkGrey;
         opacity: 0.67;
         padding-left: 15px;
         cursor: pointer;
@@ -545,16 +539,16 @@ body {
 
 /* Секция Footer */
 .footer {
-    background-color: $darkGrey;;
+    background-color: $darkGrey;
     @include flexRowWrap();
     justify-content: space-between;
     padding-top: 24px;
     padding-bottom: 23px;
-    
+
     &__item__left {
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
     }
     &__item__right {
         display: flex;
@@ -590,28 +584,102 @@ body {
 }
 
 .media__item:hover {
-
     .media__item__svg {
         fill: $whiteColor;
         transition: 0.5s;
     }
 }
-@import 'm768';
-@import 'm375';
-@import 'product';
-@import 'catalog';
-@import 'cart';
-@import 'registration';
 
+/* Секция корзины */
+.cart-items {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    &__title {
+        color: $blackColor;
+        font-size: 30px;
+        margin-bottom: 64px;
+        text-align: center;
+    }
+}
+.product-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
+.product-cart-card {
+    position: relative;
+    max-width: 652px;
+    display: flex;
+    flex-direction: row;
+    gap: 31px;
+    box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+}
 
+.product-cart-card__description {
+    padding-top: 22px;
+}
 
+.product-cart-card__heading,
+.product-cart-card__category {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222222;
+}
 
+.product-cart-card__category {
+    margin-bottom: 42px;
+}
 
+.strong-cart-price {
+    color: #ef5b70;
+}
 
+.product-cart-card__price,
+.product-cart-card__color,
+.product-cart-card__size,
+.product-cart-card__quantity {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    color: #575757;
+}
+.product-cart-card__price,
+.product-cart-card__color,
+.product-cart-card__size {
+    margin-bottom: 6px;
+}
+.product-cart-card__image {
+    width: 262px;
+    height: 306px;
+}
+.product-cart-card__inventory {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
 
+.product-cart-card__count {
+    padding-left: 16px;
+    width: 28px;
+}
 
+.product-cart-card__exit {
+    cursor: pointer;
+    position: absolute;
+    right: 22px;
+    top: 28px;
+}
 
-
-
-
+@import "m768";
+@import "m375";
+@import "product";
+@import "catalog";
+@import "cart";
+@import "registration";

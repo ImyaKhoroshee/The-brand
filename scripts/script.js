@@ -1,50 +1,74 @@
 const dataProduct = `[
     {
+    "id": "card1",
     "brand": "ELLERY X M'O",
     "category": "CAPSULE",
     "description": "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
     "currency": "$",
     "price": "52.00",
+    "color": "Red",
+    "quantity": "1",
+    "size": "XI",
     "image": "./img/card_1.svg"
     },
     {
+    "id": "card2",
     "brand": "ELLERY X M'O",
     "category": "CAPSULE",
     "description": "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
     "currency": "$",
     "price": "52.00",
+    "color": "Red",
+    "quantity": "1",
+    "size": "XI",
     "image": "./img/card_2.svg"
     },
     {
+    "id": "card3",
     "brand": "ELLERY X M'O",
     "category": "CAPSULE",
     "description": "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
     "currency": "$",
     "price": "52.00",
+    "color": "Red",
+    "quantity": "1",
+    "size": "XI",
     "image": "./img/card_3.svg"
     },
     {
+    "id": "card4",
     "brand": "ELLERY X M'O",
     "category": "CAPSULE",
     "description": "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
     "currency": "$",
     "price": "52.00",
+    "color": "Red",
+    "quantity": "1",
+    "size": "XI",
     "image": "./img/card_4.svg"
     },
     {
+    "id": "card5",
     "brand": "ELLERY X M'O",
     "category": "CAPSULE",
     "description": "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
     "currency": "$",
     "price": "52.00",
+    "color": "Red",
+    "quantity": "1",
+    "size": "XI",
     "image": "./img/card_5.svg"
     },
     {
+    "id": "card6",
     "brand": "ELLERY X M'O",
     "category": "CAPSULE",
     "description": "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
     "currency": "$",
     "price": "52.00",
+    "color": "Red",
+    "quantity": "1",
+    "size": "XI",
     "image": "./img/card_6.svg"
     }
 ]`
@@ -115,7 +139,7 @@ JSON.parse(dataProduct).forEach(product => {
 
         const cardCartLink = document.createElement('a');
         cardCartLink.classList.add('hover__button', 'fade-in-fwd');
-        cardCartLink.href = "./pages/product.html";
+        cardCartLink.setAttribute("data-id", product.id); // ID для карточек
         cardImageWrapper.append(cardCartLink);
 
         const cardCartSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -154,5 +178,136 @@ JSON.parse(dataProduct).forEach(product => {
         cardPrice.classList.add('card__price');
         cardPrice.textContent = `${product.currency} ${product.price}`;
         cardDescription.append(cardPrice);
-
+    
 });
+
+
+// Создание секции Корзина, ее заголовка и обертку для карточек
+const cartItemsSection = document.createElement('section');
+cartItemsSection.classList.add('cart-items', 'center');
+const sectionFeatures = document.querySelector('.features');
+sectionFeatures.insertAdjacentElement('afterend', cartItemsSection);
+
+const cartItemsTitle = document.createElement('h3');
+cartItemsTitle.classList.add('cart-items__title');
+cartItemsTitle.textContent = 'Cart Items';
+cartItemsSection.append(cartItemsTitle);
+
+const cartItemsProduct = document.createElement('div')
+cartItemsProduct.classList.add('product-cart')
+cartItemsSection.append(cartItemsProduct);
+
+
+// Добавление товара в секцию Корзина по клику на любую кнопку 'Add to Chart'
+const cardLinkEl = document.querySelectorAll('.hover__button');
+const cartItemsArray = [];
+
+cardLinkEl.forEach(item => item.addEventListener('click', function (e) {
+    
+    JSON.parse(dataProduct).forEach(product => { 
+        
+        if (cartItemsArray.length === 0 && product.id === e.target.dataset.id) {
+            cartItemsArray.push(product);
+            cartItemsArray.forEach(prod => cardRenderInCart(prod, e.target.dataset.id));
+        }
+        
+        else if (product.id === e.target.dataset.id && cartItemsArray.length !== 0) {
+
+            if (cartItemsArray.some(el => el.id === e.target.dataset.id)) {
+                let productInputChange = document.querySelector(`#${e.target.dataset.id}`);
+                productInputChange.value = Number(productInputChange.value) + 1;
+            } else {
+                cardRenderInCart(product, e.target.dataset.id);
+                cartItemsArray.push(product);
+            }
+        }          
+    });
+    
+   // Удаление товара из секции Корзина
+    const exitCrosses = document.querySelectorAll('.product-cart-card__exit');
+  
+    exitCrosses.forEach(item => item.addEventListener('click', function (e) {
+        (document.querySelector('.product-cart').childElementCount === 0) ?
+            cartItemsSection.style.display = 'none' :
+            e.target.closest('.product-cart-card').remove();
+    }));
+}));
+
+// Функция отрисовки карточки
+function cardRenderInCart(prod, id) {
+// Обертка для каждой карточки
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-cart-card');
+                cartItemsProduct.append(productCard);
+
+                // Три блока: фото + описание + выход
+                const productImage = document.createElement('img');
+                productImage.classList.add('product-cart-card__image');
+                productImage.src = prod.image;
+                productCard.append(productImage);
+
+                const productCardDescription = document.createElement('div');
+                productCardDescription.classList.add('product-cart-card__description');
+                productCard.append(productCardDescription);
+
+                const productCardExit = document.createElement('div');
+                productCardExit.classList.add('product-cart-card__exit');
+                productCard.append(productCardExit);
+
+                // Контент внутри блока с описанием
+                const heading = document.createElement('a');
+                heading.classList.add('product-cart-card__heading');
+                heading.href = '#';
+                heading.textContent = prod.brand;
+                productCardDescription.append(heading);
+
+                const categoty = document.createElement('h3');
+                categoty.classList.add('product-cart-card__category');
+                categoty.textContent = prod.category;
+                productCardDescription.append(categoty);
+
+                const price = document.createElement('p');
+                price.classList.add('product-cart-card__price');
+                price.textContent = 'Price: ';
+                productCardDescription.append(price);
+
+                const priceSpan = document.createElement('span');
+                priceSpan.classList.add('strong-cart-price');
+                priceSpan.textContent = prod.currency + prod.price;
+                price.append(priceSpan);
+
+                const color = document.createElement('p');
+                color.classList.add('product-cart-card__color');
+                color.textContent = `Color: ${prod.color}`;
+                productCardDescription.append(color);
+
+                const size = document.createElement('p');
+                size.classList.add('product-cart-card__size');
+                size.textContent = 'Size: ' + prod.size;
+                productCardDescription.append(size);
+
+                const inventory = document.createElement('div');
+                inventory.classList.add('product-cart-card__inventory');
+                productCardDescription.append(inventory);
+
+                const quantity = document.createElement('p');
+                quantity.classList.add('product-cart-card__quantity');
+                quantity.textContent = 'Quantity: ';
+                inventory.append(quantity);
+
+                const inputCount = document.createElement('input');
+                inputCount.classList.add('product-cart-card__count');
+                inputCount.setAttribute('type', 'number');
+                inputCount.setAttribute('min', '1');
+                inputCount.setAttribute("id", id);
+                inputCount.value = prod.quantity;
+                inventory.append(inputCount);
+
+                // Крестик
+                const exit = document.createElement('img');
+                exit.classList.add('exit-from-cart');
+                exit.src = './img/cross.svg';
+                productCardExit.append(exit);
+                        
+    cartItemsSection.style.display = 'flex';
+};
