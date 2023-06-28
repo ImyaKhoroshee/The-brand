@@ -182,7 +182,7 @@ JSON.parse(dataProduct).forEach(product => {
 });
 
 
-// Создание секции Корзина, ее заголовка и обертку для карточек
+// Создание секции Корзина, ее заголовка и обертки для карточек
 const cartItemsSection = document.createElement('section');
 cartItemsSection.classList.add('cart-items', 'center');
 const sectionFeatures = document.querySelector('.features');
@@ -198,7 +198,7 @@ cartItemsProduct.classList.add('product-cart')
 cartItemsSection.append(cartItemsProduct);
 
 
-// Добавление товара в секцию Корзина по клику на любую кнопку 'Add to Chart'
+// Добавление товара в секцию Корзина по клику на любую кнопку 'Add to Cart'
 const cardLinkEl = document.querySelectorAll('.hover__button');
 let cartItemsArray = [];
 
@@ -224,16 +224,19 @@ cardLinkEl.forEach(item => item.addEventListener('click', function (e) {
     });
     // Удаление товара из секции Корзина
     const exitCrosses = document.querySelectorAll('.product-cart-card__exit');
-   
+
     exitCrosses.forEach(item => item.addEventListener('click', function (e) {
-    
-        if (exitCrosses.length === 1) {
-            e.target.closest('.product-cart-card').remove();
-            cartItemsArray = [];
-            cartItemsSection.style.display = 'none'
-        } else {
-            e.target.closest('.product-cart-card').remove();
+        
+        e.target.closest('.product-cart-card').remove();
+        
+        for (let i = 0; i < cartItemsArray.length; i++) {
+            if (e.target.id === cartItemsArray[i].id) {
+                cartItemsArray.splice(i, 1);
+                break;
+            }
         }
+
+        if (document.querySelector('.product-cart').childNodes.length === 0) { cartItemsSection.style.display = 'none' };
     }));
 }));
 
@@ -312,6 +315,7 @@ function cardRenderInCart(prod, id) {
                 const exit = document.createElement('img');
                 exit.classList.add('exit-from-cart');
                 exit.src = './img/cross.svg';
+                exit.setAttribute("id", id);
                 productCardExit.append(exit);
                         
     cartItemsSection.style.display = 'flex';
