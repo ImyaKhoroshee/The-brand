@@ -200,7 +200,7 @@ cartItemsSection.append(cartItemsProduct);
 
 // Добавление товара в секцию Корзина по клику на любую кнопку 'Add to Chart'
 const cardLinkEl = document.querySelectorAll('.hover__button');
-const cartItemsArray = [];
+let cartItemsArray = [];
 
 cardLinkEl.forEach(item => item.addEventListener('click', function (e) {
     
@@ -208,7 +208,7 @@ cardLinkEl.forEach(item => item.addEventListener('click', function (e) {
         
         if (cartItemsArray.length === 0 && product.id === e.target.dataset.id) {
             cartItemsArray.push(product);
-            cartItemsArray.forEach(prod => cardRenderInCart(prod, e.target.dataset.id));
+            cardRenderInCart(product, e.target.dataset.id);
         }
         
         else if (product.id === e.target.dataset.id && cartItemsArray.length !== 0) {
@@ -222,18 +222,23 @@ cardLinkEl.forEach(item => item.addEventListener('click', function (e) {
             }
         }          
     });
-    
-   // Удаление товара из секции Корзина
+    // Удаление товара из секции Корзина
     const exitCrosses = document.querySelectorAll('.product-cart-card__exit');
-  
+   
     exitCrosses.forEach(item => item.addEventListener('click', function (e) {
-        (document.querySelector('.product-cart').childElementCount === 0) ?
-            cartItemsSection.style.display = 'none' :
+    
+        if (exitCrosses.length === 1) {
             e.target.closest('.product-cart-card').remove();
+            cartItemsArray = [];
+            cartItemsSection.style.display = 'none'
+        } else {
+            e.target.closest('.product-cart-card').remove();
+        }
     }));
 }));
 
-// Функция отрисовки карточки
+
+// Функция отрисовки карточки c присвоением ID
 function cardRenderInCart(prod, id) {
 // Обертка для каждой карточки
                 const productCard = document.createElement('div');
